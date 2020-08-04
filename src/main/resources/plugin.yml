@@ -1,0 +1,28 @@
+# Metadata
+name: MineKartz
+version: 0.0.1-SNAPSHOT
+description: The MineKartz minigame; an attempt at recreating Hypixel's Turbo Kart Racers
+
+# Technical
+main: me.nullicorn.minekartz.MineKartz
+api-version: 1.15
+depend: [ProtocolLib]
+
+commands:
+  roster:
+    description: Read and manipulate the game's roster
+    permission: game.roster
+    usage: |
+      /roster list
+      /roster add <player>
+      /roster remove <player>
+
+permissions:
+  game.*:
+    description: Gives access to all game-related commands
+    children:
+      game.roster: true
+
+  game.roster:
+    description: Allows you to manipulate the game's roster via /roster
+    default: op

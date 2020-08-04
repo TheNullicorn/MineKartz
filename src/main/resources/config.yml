@@ -1,0 +1,58 @@
+# Used to configure the game's various states (pre-game, in-game, post-game, etc)
+states:
+  # The first state of the game
+  # This is when players wait for more players to join in a waiting lobby
+  pregame:
+    # The minimum number of players required for the game to start
+    minPlayers: 2
+
+    # The maximum number of players allowed in a game
+    maxPlayers: 12
+
+    # Chat messages sent to players
+    messages:
+      # Sent to all players when another player joins the game
+      # 3 parameters:
+      #  - Username of the player who joined
+      #  - Current number of players in the game
+      #  - Max number of players in the game
+      join: "§b%s§6 joined the game! (§a%s§6/§a%s§6)"
+
+      # Sent to all players when another player quits
+      # 1 parameter:
+      #  - Username of the player who quit
+      quit: "§7%s§6 has quit!"
+
+# Settings related to how Karts move and interact with the world
+physics:
+  # These values relate to how Karts drive
+  #   - Velocity is measured in blocks-per-tick (b/t)
+  #   - Acceleration is measured in blocks-per-tick-per-tick (b/t/t)
+  movement:
+    # A Kart's acceleration (in b/t/t) when the "W" key is pressed
+    forward_acceleration: 0.03
+
+    # A Kart's acceleration (in b/t/t) when the "S" key is pressed
+    backward_acceleration: 0.01
+
+    # The fastest velocity (in b/t) that a Kart can reach while driving forward
+    max_forward_velocity: 1.05
+
+    # The fastest velocity (in b/t) that a Kart can reach while driving backward
+    max_backward_velocity: 0.5
+
+    # Controls how quickly (in b/t/t) a Kart will decelerate after the "W" or "S" keys are released
+    friction: 0.035
+
+  # These values relate to how Karts steers
+  #  - Velocity is measured in degrees-per-tick (d/t)
+  #  - Acceleration is measured in degrees-per-tick-per-tick (d/t/t)
+  steering:
+    # A Kart's rotational acceleration (in d/t/t) while turning left or right
+    rotational_acceleration: 1.0
+
+    # The fastest speed (in d/t) at which a Kart can steer
+    max_rotational_velocity: 8.0
+
+    # Controls how quickly (in d/t/t) a Kart will decelerate after the "A" or "D" keys are released
+    rotational_friction: 0.8
